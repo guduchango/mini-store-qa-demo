@@ -1,0 +1,67 @@
+# Entornos virtuales (venv, conda, pipenv, etc.)
+venv/
+.venv/
+env/
+.env/
+ENV/
+*.venv/
+bin/
+include/
+lib/
+pyvenv.cfg
+pip-selfcheck.json
+.Python
+
+# Archivos de configuración de entornos
+Pipfile
+Pipfile.lock
+poetry.lock
+requirements.txt
+requirements-dev.txt
+*.egg-info/
+*.egg
+dist/
+build/
+__pycache__/
+*.pyc
+*.py[cod]
+*$py.class
+
+# Archivos de IDE y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+.DS_Store (macOS)
+
+# Archivos de caché y logs
+*.log
+*.sqlite3
+*.cache
+.pytest_cache/
+.coverage
+htmlcov/
+.coverage.*
+.mypy_cache/
+
+# Archivos de configuración sensible
+.env
+.env.local
+.env.dev
+.env.prod
+secrets.yml
+credentials.json
+*.key
+*.pem
+
+# Archivos generados por Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Archivos de sistema y temporales
+*.tmp
+*.bak
+*~
+Thumbs.db

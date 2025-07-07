@@ -47,17 +47,24 @@ products.json             # Product dataset (JSON with 50 products)
    docker compose up --build
    ```
 
-3. Once the containers are up, FastAPI will be accessible on:
+3. Download ia in the ollama container:
+   ```bash
+   docker exec -it ollama-chroma-v1-ollama-1 /bin/sh
+   ollama pull deepseek-llm
+   ollama pull llama-2-7b-chat
+   ```
+
+4. Once the containers are up, FastAPI will be accessible on:
    ```
    http://localhost:8001
    ```
 
-4. Check health endpoint to confirm everything is running:
+5. Check health endpoint to confirm everything is running:
    ```bash
    curl http://localhost:8001/health
    ```
 
-5. Test the `/query` endpoint (example with curl):
+6. Test the `/query` endpoint (example with curl):
    ```bash
    curl -X POST -H "Content-Type: application/json"    -d '{"ask": "I need comfortable clothes for lounging at home, what do you suggest?"}'    http://localhost:8001/query
    ```

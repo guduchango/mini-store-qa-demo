@@ -11,7 +11,7 @@ def generate_response(prompt):
         print("🚀 Sending prompt to Ollama...")
         ollama_response = requests.post(
             f"http://{ollama_host}:{ollama_port}/api/generate",
-            json={"model": "llama3", "prompt": prompt},
+            json={"model": "deepseek-llm", "prompt": prompt},
             timeout=300,  # increase if you expect long responses
             stream=True   # key: enables streaming response
         )
