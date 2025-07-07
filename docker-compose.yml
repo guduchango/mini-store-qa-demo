@@ -1,0 +1,29 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ollama_data:/root/.ollama
+    # Si no necesitas acceder a Ollama desde fuera de Docker, no expongas el puerto
+    # Si querés probar Ollama con curl desde tu host, descomenta la línea de abajo y cambia el puerto si está ocupado:
+    # ports:
+    #   - "11435:11434"
+
+  app:
+    build: .
+    depends_on:
+      - ollama
+    volumes:
+      - ./app:/app/app
+      - ./productos.json:/app/productos.json
+      - app_chroma_data:/app/chroma_data  # persistencia de la base vectorial embebida
+    environment:
+      - CHROMA_HOST=chroma
+      - CHROMA_PORT=8000
+      - OLLAMA_HOST=ollama
+      - OLLAMA_PORT=11434
+    ports:
+      - "8001:8001"  # tu API FastAPI quedará expuesta en localhost:8001
+
+volumes:
+  app_chroma_data:
+  ollama_data:
