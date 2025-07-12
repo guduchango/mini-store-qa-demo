@@ -18,7 +18,9 @@ services:
       - OLLAMA_HOST=ollama
       - OLLAMA_PORT=11434
     ports:
-      - "8001:8001" 
+      - "8001:8001"
+    extra_hosts:
+      - "host.docker.internal:192.168.100.12"
 
 volumes:
   app_chroma_data:
